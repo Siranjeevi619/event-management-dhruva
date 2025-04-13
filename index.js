@@ -26,9 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 connectDB();
 // app.use("/api", paymentRoute);
 // app.use("/api", eventRoutes);
-app.use("/", (req, res) => {
-  res.send("hello KCE");
-});
+
 app.use("/stage", stageRoutes);
 app.use("/api", userRoutes);
 app.use("/api", eventRoute);
