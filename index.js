@@ -27,6 +27,7 @@ connectDB();
 // app.use("/api", paymentRoute);
 // app.use("/api", eventRoutes);
 
+
 app.use("/stage", stageRoutes);
 app.use("/api", userRoutes);
 app.use("/api", eventRoute);
