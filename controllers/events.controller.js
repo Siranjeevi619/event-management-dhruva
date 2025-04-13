@@ -12,26 +12,26 @@ const createDepartmentWithEvents = async (req, res) => {
       eventTime,
       eventVenue,
       rules,
-      coordinators,
+      eventStaffCoordinator,
       studentCoordinators,
-
       type,
     } = req.body;
+    console.log(req.body);
 
     const newEvent = {
       eventName,
       eventDescription,
       eventPrize,
-      eventDescription,
       eventTime,
       eventVenue,
-      eventRules: rules,
-      eventStaffCoordinator: coordinators,
-      studentCoordinator: studentCoordinators,
+      eventRules: rules || [],
+      eventStaffCoordinator,
+      studentCoordinator: studentCoordinators || [],
       eventType: type,
     };
 
-    var department = await departmentModel.findOne({ departmentName });
+    let department = await departmentModel.findOne({ departmentName });
+
     if (!department) {
       department = new departmentModel({
         departmentName,
@@ -49,6 +49,7 @@ const createDepartmentWithEvents = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
 const getEvents = async (req, res) => {
   try {
     const deparment = await departmentModel.find();
@@ -60,7 +61,6 @@ const getEvents = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
-
 const updateEvent = async (req, res) => {
   const { id } = req.params;
   const updatedEventData = req.body;

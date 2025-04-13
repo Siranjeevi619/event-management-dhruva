@@ -25,9 +25,7 @@ const eventSchema = new mongoose.Schema({
 
 const departmentSchema = new mongoose.Schema({
   departmentName: String,
-  coordinatorName: String,
-  coordinatorContactPhone: String,
-  coordinatorEmail: String,
+ 
   events: [eventSchema],
 });
 

@@ -16,7 +16,10 @@ const {
 require("dotenv").config();
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://event-management-dhruva.vercel.app",
+    ],
     credentials: true,
   })
 );
@@ -27,11 +30,9 @@ connectDB();
 // app.use("/api", paymentRoute);
 // app.use("/api", eventRoutes);
 
-
 app.use("/stage", stageRoutes);
 app.use("/api", userRoutes);
 app.use("/api", eventRoute);
 app.use("/api", passRoute);
-
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
