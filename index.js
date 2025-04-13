@@ -23,9 +23,8 @@ app.use(
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 connectDB();
-app.use("/api", paymentRoute);
+// app.use("/api", paymentRoute);
 // app.use("/api", eventRoutes);
 app.use("/stage", stageRoutes);
 app.use("/api", userRoutes);
