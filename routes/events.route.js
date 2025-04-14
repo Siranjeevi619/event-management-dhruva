@@ -12,12 +12,14 @@ const {
   authenticateUser,
 } = require("./../middleware/auth.middleware.js");
 const app = express.Router();
+
 app.post(
   "/add-events",
   authenticateUser,
   authorizeRoles("staff"),
   createDepartmentWithEvents
 );
+
 app.put("/events/:id", authenticateUser, updateEvent);
 app.delete(
   "/events/:id",
