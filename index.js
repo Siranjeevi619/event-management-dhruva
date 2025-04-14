@@ -19,7 +19,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://event-management-dhruva.vercel.app",
-      "https://event-management-dhruva-client.vercel.app/",
+      "https://event-management-dhruva-client.vercel.app",
     ],
     credentials: true,
   })
