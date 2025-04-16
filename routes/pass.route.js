@@ -13,5 +13,5 @@ app.post("/buy-pass", buypass);
 app.get("/get-purchase-list", getPassOrders);
 
 app.get("/download-excel-file", exportPassList);
-app.get("/get-email-pass", getPassEmail);
+app.post("/get-email-pass", getPassEmail);
 module.exports = app;
